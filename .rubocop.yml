@@ -1,0 +1,16 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'hanami-i18n.gemspec'
+    - 'spec/**/*'
+    - 'test/**/*'
+    - 'bin/**/*'
+    - 'Rakefile'
+    - 'Gemfile'
+  TargetRubyVersion: 2.5
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false

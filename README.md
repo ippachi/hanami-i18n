@@ -1,8 +1,6 @@
 # Hanami::I18n
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hanami/i18n`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem provide i18n for hanami
 
 ## Installation
 
@@ -22,7 +20,65 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Prepare locales file
+
+In your hanami application, you should prepare locales file to `config/locale`.
+
+```yml
+ja: # config/locale/ja.yml
+  model:
+    entities:
+      user: ユーザー
+      book: 本
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+      book:
+        title: タイトル
+        auther: 著者
+
+```
+
+### Initialize I18n
+
+In your initializer, you should set available locales and load path.
+
+```ruby
+# config/initializers/i18n.rb
+
+I18n.available_locales = [:ja, :en]
+I18n.default_locale = :ja
+I18n.load_path += Dir[Hanami.root.join('config', 'locale', '*.{rb,yml}')]
+
+```
+
+and you can use i18n in your application!
+
+## Form
+
+In your view, if you defined yml file above, you can use translation in your form label.
+
+```rhtml
+<%=
+  form_for :user routes.user_path do
+    label :name # => 名前
+    text_field :name
+    
+    label :email # => メールアドレス
+    text_field :email
+  end
+%>
+```
+
+## View
+
+```rhtml
+<%= Book.t %> <% # => 本 %>
+<%= Book.t(:title) %> <% # => タイトル %>
+<%= Book.t(:auther) %> <% # => 著者 %>
+
+```
 
 ## Development
 

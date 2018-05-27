@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'i18n'
+
 module Hanami::I18n
   module Validation
     def errors(options = {}.freeze)

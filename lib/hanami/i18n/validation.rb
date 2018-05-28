@@ -9,7 +9,7 @@ module Hanami::I18n
       h.each_with_object({}) do |(k1, v1), hash1|
         hash1[k1] = v1.each_with_object({}) do |(k2, v2), hash2|
           hash2[I18n.t(k2,
-                       scope: "entity.attributes.#{k1}",
+                       scope: "model.attributes.#{k1}",
                        default: Hanami::Utils::String.capitalize(k2))] = v2[0]
         end
       end
@@ -20,7 +20,7 @@ module Hanami::I18n
       h.each_with_object({}) do |(k1, v1), hash1|
         hash1[k1] = v1.each_with_object({}) do |(k2, v2), hash2|
           hash2[I18n.t(k2,
-                       scope: "entity.attributes.#{k1}",
+                       scope: "model.attributes.#{k1}",
                        default: Hanami::Utils::String.capitalize(k2))] = v2[0]
         end
       end

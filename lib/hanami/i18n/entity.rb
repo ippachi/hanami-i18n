@@ -12,10 +12,10 @@ module Hanami
 
       if attribute
         ::I18n.t(attribute,
-                 scope: "entity.attributes.#{entity_name}")
+                 scope: "model.attributes.#{entity_name}")
       else
         ::I18n.t(entity_name,
-                 scope: 'entity.models')
+                 scope: 'model.entities')
       end
     end
   end

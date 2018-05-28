@@ -1,0 +1,89 @@
+ja:
+  errors:
+    or: "or"
+    array?: "は配列にしてください"
+
+    empty?: "は空にしてください"
+
+    excludes?: "は%{value}を含まないでください"
+
+    excluded_from?:
+      arg:
+        default: "must not be one of: %{list}"
+        range: "must not be one of: %{list_left} - %{list_right}"
+    exclusion?: "must not be one of: %{list}"
+
+    eql?: "は%{left}と等しい値にしてください"
+
+    not_eql?: "は%{left}と異なる値にしてください"
+
+    filled?: "を入力してください"
+
+    format?: "は不正な形式です"
+
+    number?: "は数値にしてください"
+
+    odd?: "は奇数にしてください"
+
+    even?: "は偶数にしてください"
+
+    gt?: "は%{num}より大きい値にしてください"
+
+    gteq?: "は%{num}以上の値にしてください"
+
+    hash?: "はHashにしてください"
+
+    included_in?:
+      arg:
+        default: "must be one of: %{list}"
+        range: "must be one of: %{list_left} - %{list_right}"
+    inclusion?: "must be one of: %{list}"
+
+    includes?: "は%{value}を含んでください"
+
+    bool?: "は真偽値にしてください"
+
+    true?: "はtrueにしてください"
+
+    false?: "はfalseにしてください"
+
+    int?: "は整数にしてください"
+
+    float?: "は少数にしてください"
+
+    decimal?: "は少数にしてください"
+
+    date?: "は日付にしてください"
+
+    date_time?: "は日時にしてください"
+
+    time?: "は時間にしてください"
+
+    key?: "を入力してください"
+
+    attr?: "を入力してください"
+
+    lt?: "は%{num}より小さい値にしてください"
+
+    lteq?: "は%{num}以下の値にしてください"
+
+    max_size?: "は%{num}以下のサイズにしてください"
+
+    min_size?: "は%{num}以上のサイズにしてください"
+
+    none?: "は定義できません"
+
+    str?: "は文字列を入力してください"
+
+    type?: "は%{type}を入力してください"
+
+    size?:
+      arg:
+        default: "size must be %{size}"
+        range: "size must be within %{size_left} - %{size_right}"
+
+      value:
+        string:
+          arg:
+            default: "length must be %{size}"
+            range: "length must be within %{size_left} - %{size_right}"

@@ -6,7 +6,7 @@ require 'hanami/i18n/validation'
 module Dry
   module Validation
     class Result
-      prepend Hanami::I18n::Validation
+      # prepend Hanami::I18n::Validation
     end
   end
 end

@@ -42,7 +42,7 @@ ja: # config/locale/ja.yml
 
 ### Initialize I18n
 
-In your initializer, you should set available locales and load path.
+In your initializers, you should set available locales and load path.
 
 ```ruby
 # config/initializers/i18n.rb
@@ -64,7 +64,7 @@ In your view, if you defined yml file above, you can use translation in your for
   form_for :user routes.user_path do
     label :name # => 名前
     text_field :name
-    
+
     label :email # => メールアドレス
     text_field :email
   end

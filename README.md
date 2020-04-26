@@ -1,83 +1,69 @@
 # Hanami::I18n
 
-This gem provide i18n for hanami
+Hanamiとi18nを統合するgemです。
 
-## Installation
+## Getting start
 
-Add this line to your application's Gemfile:
+Gemfileに追加します。
 
 ```ruby
 gem 'hanami-i18n'
 ```
 
-And then execute:
+次に `config/locale.rb` にI18nの初期化のファイルを設置します。
+その後任意の場所にlocaleファイルを設置します。
+重要: `config/initalizers` では動作しません。
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install hanami-i18n
-
-## Usage
-
-### Prepare locales file
-
-In your hanami application, you should prepare locales file to `config/locale`.
-
-```yml
-ja: # config/locale/ja.yml
-  model:
-    entities:
-      user: ユーザー
-      book: 本
-    attributes:
-      user:
-        name: 名前
-        email: メールアドレス
-      book:
-        title: タイトル
-        auther: 著者
-
-```
-
-### Initialize I18n
-
-In your initializers, you should set available locales and load path.
+例:
 
 ```ruby
-# config/initializers/i18n.rb
-
-I18n.available_locales = [:ja, :en]
-I18n.default_locale = :ja
-I18n.load_path += Dir[Hanami.root.join('config', 'locale', '*.{rb,yml}')]
-
+# config/locale.rb
+I18n.load_path << Dir[File.expand_path("config/locales") + "/*.yml"]
+I18n.default_locale = :en # (note that `en` is already the default!)
 ```
 
-and you can use i18n in your application!
 
-## Form
+```yaml
+# config/locales/en.yml
 
-In your view, if you defined yml file above, you can use translation in your form label.
+en:
+  models:
+    attributes:
+      user:
+        name: "Name"
+        email: "E-mail"
 
-```rhtml
-<%=
-  form_for :user routes.user_path do
-    label :name # => 名前
-    text_field :name
+  errors:
+    filled?: "MUST be filled!"
+```
 
-    label :email # => メールアドレス
-    text_field :email
+そうすると以下のように使用できるようになります。
+
+### form
+
+```ruby
+form_for :user, routes.users_path do
+  label :email
+end
+```
+
+```html
+<form>
+  <label>E-mail</label>
+</form>
+```
+
+### validation
+
+```ruby
+params do
+  required(:user).schema do
+    required(:name).filled(:str?)
+    required(:email).filled(:str?)
   end
-%>
-```
+end
 
-## View
-
-```rhtml
-<%= Book.t %> <% # => 本 %>
-<%= Book.t(:title) %> <% # => タイトル %>
-<%= Book.t(:auther) %> <% # => 著者 %>
-
+params.error_messages # => ["Name MUST be filled!", "E-mail MUST be filled!"]
 ```
 
 ## Development

@@ -1,0 +1,9 @@
+en:
+  models:
+    attributes:
+      user:
+        email: 'My E-mail'
+      post:
+        title: 'My title'
+      reply:
+        body: 'My body'

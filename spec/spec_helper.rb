@@ -1,5 +1,8 @@
 require "bundler/setup"
+require "hanami/helpers"
 require "hanami/i18n"
+
+require_relative "./fixtures/locale"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

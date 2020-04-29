@@ -1,5 +1,8 @@
 en:
   models:
+    entities:
+      user: 'My user'
+      post: 'My post'
     attributes:
       user:
         email: 'My E-mail'
@@ -7,3 +10,8 @@ en:
         title: 'My title'
       reply:
         body: 'My body'
+
+  errors:
+    key?: 'Key!'
+    filled?: 'Filled!'
+    format?: 'Format!'

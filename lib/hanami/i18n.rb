@@ -2,3 +2,4 @@
 
 require 'hanami/i18n/version'
 require 'hanami/i18n/helpers/form'
+require 'hanami/i18n/validations'

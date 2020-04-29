@@ -33,6 +33,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'i18n'
   spec.add_dependency 'hanami-helpers'
+  spec.add_dependency 'hanami-validations'
   spec.add_dependency 'dry-inflector'
 
   spec.add_development_dependency 'bundler'
@@ -41,4 +42,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency "appraisal"
   spec.add_development_dependency "pry"
+  spec.add_development_dependency "byebug"
 end

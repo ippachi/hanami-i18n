@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "hanami/helpers"
+require "hanami/validations"
 require "hanami/i18n"
 
 require_relative "./fixtures/locale"

@@ -1,18 +1,18 @@
 # Hanami::I18n
 
-Hanamiとi18nを統合するgemです。
+It is a gem that integrates Hanami and i18n.
 
 ## Getting start
 
-Gemfileに追加します。
+Add Gemfile
 
 ```ruby
 gem 'hanami-i18n'
 ```
 
-次に `config/locale.rb` にI18nの初期化のファイルを設置します。
-その後任意の場所にlocaleファイルを設置します。
-重要: `config/initalizers` では動作しません。
+Next, put the initialization file of I18n in `config/locale.rb`.
+Then place the locale file in any location.
+*Important: `config/initalizers` will not work.*
 
 例:
 
@@ -30,26 +30,28 @@ en:
   models:
     attributes:
       user:
-        name: "Name"
-        email: "E-mail"
+        name: "My name"
+        email: "My E-mail"
 
   errors:
     filled?: "MUST be filled!"
 ```
 
-そうすると以下のように使用できるようになります。
+Then it can be used as follows.
 
 ### form
 
 ```ruby
 form_for :user, routes.users_path do
+  label :name
   label :email
 end
 ```
 
 ```html
 <form>
-  <label>E-mail</label>
+  <label>My name</label>
+  <label>My E-mail</label>
 </form>
 ```
 
@@ -63,7 +65,9 @@ params do
   end
 end
 
-params.error_messages # => ["Name MUST be filled!", "E-mail MUST be filled!"]
+
+
+params.errors(full: true) # => { user: {:email=>["My name MUST be filled!"], :post=>{:title=>["My E-mail MUST be filled!"]}} }
 ```
 
 ## Development
